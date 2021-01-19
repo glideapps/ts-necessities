@@ -60,3 +60,5 @@ export function hasOwnProperty<T extends string>(obj: unknown, name: T): obj is 
     if (obj === undefined || obj === null) return false;
     return Object.prototype.hasOwnProperty.call(obj, name);
 }
+
+export { DefaultMap } from "./default-map";
