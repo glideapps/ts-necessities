@@ -2,7 +2,7 @@
     "name": "@glideapps/ts-necessities",
     "version": "1.0.0",
     "description": "Small utilities to make life with TypeScript easier",
-    "main": "dist/js/index.js",
+    "main": "dist/index.js",
     "scripts": {
         "build": "tsc",
         "lint": "eslint src --ext .ts,.tsx"
