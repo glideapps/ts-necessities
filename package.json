@@ -10,6 +10,10 @@
     "keywords": [
         "typescript"
     ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/glideapps/ts-necessities.git"
+    },
     "author": "Glide",
     "license": "MIT",
     "devDependencies": {
