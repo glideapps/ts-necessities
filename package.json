@@ -6,7 +6,8 @@
     "types": "dist/index.d.ts",
     "scripts": {
         "build": "tsc",
-        "lint": "eslint src --ext .ts,.tsx"
+        "lint": "eslint src --ext .ts,.tsx",
+        "typedoc": "typedoc"
     },
     "keywords": [
         "typescript"
@@ -22,6 +23,7 @@
         "@typescript-eslint/parser": "^4.14.0",
         "eslint": "^7.18.0",
         "eslint-plugin-import": "^2.22.1",
+        "typedoc": "^0.20.16",
         "typescript": "^4.1.3"
     }
 }
