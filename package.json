@@ -1,7 +1,7 @@
 {
     "name": "@glideapps/ts-necessities",
     "version": "1.0.0",
-    "description": "Small functions to make life with TypeScript easier",
+    "description": "Small utilities to make life with TypeScript easier",
     "main": "dist/js/index.js",
     "scripts": {
         "build": "tsc",
