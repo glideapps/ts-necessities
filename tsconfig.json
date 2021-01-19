@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "module": "commonjs",
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "noImplicitAny": true,
@@ -9,7 +10,9 @@
         "declaration": true,
         "sourceMap": true,
         "downlevelIteration": true,
-        "target": "es5",
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "target": "es6",
         "outDir": "dist",
         "lib": ["es6", "dom"],
         "baseUrl": "./src",
