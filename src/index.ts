@@ -49,7 +49,7 @@ export function reduceTwo<T>(a: T | undefined, b: T | undefined, f: (aa: T, bb: 
     return f(a, b);
 }
 
-export type Writeable<T> = { -readonly [P in keyof T]: T[P] };
+export type Writable<T> = { -readonly [P in keyof T]: T[P] };
 
 export function definedMap<T, U>(x: T | undefined, f: (xx: T) => U): U | undefined {
     if (x === undefined) return undefined;
