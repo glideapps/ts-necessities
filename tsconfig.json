@@ -8,6 +8,7 @@
         "strict": true,
         "declaration": true,
         "sourceMap": true,
+        "downlevelIteration": true,
         "target": "es5",
         "outDir": "dist",
         "lib": ["es6", "dom"],

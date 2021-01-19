@@ -61,4 +61,16 @@ export function hasOwnProperty<T extends string>(obj: unknown, name: T): obj is 
     return Object.prototype.hasOwnProperty.call(obj, name);
 }
 
-export { DefaultMap } from "./default-map";
+export function mapFilterUndefined<T, U>(iterable: Iterable<T>, f: (x: T, i: number) => U | undefined): U[] {
+    const result: U[] = [];
+    let i = 0;
+    for (const x of iterable) {
+        const y = f(x, i);
+        i += 1;
+        if (y === undefined) continue;
+        result.push(y);
+    }
+    return result;
+}
+
+export { DefaultMap, ReadonlyDefaultMap } from "./default-map";
