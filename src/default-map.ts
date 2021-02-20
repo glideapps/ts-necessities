@@ -42,6 +42,11 @@ export class DefaultMap<K, V> extends Map<K, V> implements ReadonlyDefaultMap<K,
     public get(k: K): V {
         let v = super.get(k);
         if (v === undefined) {
+            // There's an edge case here, which is that the value
+            // for `k` exists, but it's `undefined`.  To guard
+            // against that we have this extra check.
+            if (this.has(k)) return v as V;
+
             v = this._defaultFunc(k);
             this.set(k, v);
         }
