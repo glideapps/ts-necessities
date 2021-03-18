@@ -14,6 +14,7 @@
         "guard-for-in": "error",
         "no-empty": "error",
         "no-shadow": "error",
+        "no-debugger": "off",
         "import/no-cycle": "off",
         "import/namespace": "off",
         "import/named": "off",

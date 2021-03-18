@@ -19,6 +19,7 @@ export function proveNever<T>(_never: never, message: string, result: T): never 
  */
 export function panic(message: string = "This should not happen"): never {
     console.trace(message);
+    debugger;
     throw new Error(message);
 }
 
