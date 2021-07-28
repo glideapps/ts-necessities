@@ -55,8 +55,11 @@ export function defined<T>(v: T | undefined, reason?: string): T {
  * The only thing this function does is to trace if the promise
  * `p` rejects.  It is useful to explain to ESLint that `p` is
  * intentionally not `await`ed.
+ *
+ * @deprecated Instead of `dontAwait(x)` use `void x`.
  */
-export function dontAwait(p: Promise<unknown>): void {
+export function dontAwait<T>(p: Promise<T> | T): void {
+    if (!(p instanceof Promise)) return;
     p.catch(e => {
         console.trace("Unhandled error from unawaited promise", e);
         throw e;
@@ -100,7 +103,7 @@ export function definedMap<T, U>(x: T | undefined, f: (xx: T) => U): U | undefin
  * If `x` belongs to the enum `e`, return `true`.  Otherwise, return `false`.
  */
 export function isEnumValue<T>(e: T, x: unknown): x is T[keyof T] {
-    return (Object.keys(e) as Array<keyof T>).map(k => e[k]).some(v => v === x as T[keyof T]);
+    return (Object.keys(e) as Array<keyof T>).map(k => e[k]).some(v => v === (x as T[keyof T]));
 }
 
 /**

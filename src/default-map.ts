@@ -55,8 +55,10 @@ export class DefaultMap<K, V> extends Map<K, V> implements ReadonlyDefaultMap<K,
 
     /**
      * Sets the value for `k` to `f(v)` where `v` is the previous
-     * value for `k`, or the default if not present.  These two lines
-     * are equivalent:
+     * value for `k`, or the default if not present.  Returns the new
+     * value.
+     *
+     * These two lines are equivalent:
      *
      * ```
      * m.set("foo", m.get("foo") + 1);
