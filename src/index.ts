@@ -100,7 +100,7 @@ export function definedMap<T, U>(x: T | undefined, f: (xx: T) => U): U | undefin
  * If `x` belongs to the enum `e`, return `true`.  Otherwise, return `false`.
  */
 export function isEnumValue<T>(e: T, x: unknown): x is T[keyof T] {
-    return (Object.keys(e) as Array<keyof T>).map(k => e[k]).some(v => v === x as T[keyof T]) ?? false;
+    return (Object.keys(e) as Array<keyof T>).map(k => e[k]).some(v => v === x as T[keyof T]);
 }
 
 /**
