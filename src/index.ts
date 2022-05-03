@@ -130,4 +130,47 @@ export function mapFilterUndefined<T, U>(iterable: Iterable<T>, f: (x: T, i: num
     return result;
 }
 
+/**
+ * Filters out all elements in `arr` that are `undefined`.
+ */
+export function filterUndefined<T>(arr: Iterable<T | undefined>): T[] {
+    const result: T[] = [];
+    for (const x of arr) {
+        if (x !== undefined) {
+            result.push(x);
+        }
+    }
+    return result;
+}
+
+/**
+ * Returns a string representation of `e`, which is supposed to be an
+ * exception.
+ */
+export function exceptionToString(e: unknown): string {
+    if (e === undefined) return "";
+    try {
+        return (e as any).toString();
+    } catch (f: unknown) {
+        try {
+            return `Exception can't be stringified: ${exceptionToString(f)}`;
+        } catch {
+            return "Exception can't be stringified";
+        }
+    }
+}
+
+/**
+ * Returns the exception `e` as an instance of `Error`.  If `e` is already an
+ * `Error`, it just returns `e`, otherwise it returns an error with
+ * `exceptionToString(e)`.
+ */
+export function exceptionToError(e: unknown): Error {
+    if (e instanceof Error) {
+        return e;
+    } else {
+        return new Error(exceptionToString(e));
+    }
+}
+
 export { DefaultMap, ReadonlyDefaultMap } from "./default-map";
