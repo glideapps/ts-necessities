@@ -91,6 +91,8 @@ export function reduceTwo<T>(a: T | undefined, b: T | undefined, f: (aa: T, bb: 
  */
 export type Writable<T> = { -readonly [P in keyof T]: T[P] };
 
+export type DeepWritable<T> = { -readonly [P in keyof T]: DeepWritable<T[P]> };
+
 /**
  * If `x` is undefined, return `undefined`.  Otherwise, return `f(x)`.
  */
