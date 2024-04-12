@@ -13,6 +13,7 @@
  * let orange: Orange = apple;           // error!
  * orange = "jalapeño";                  // error!
  * let justAString: string = apple;      // This is ok
+ * ```
  */
 export type BrandedString<T extends string> = string & { __brand: T };
 
@@ -23,4 +24,20 @@ export type BrandedString<T extends string> = string & { __brand: T };
  */
 export function brandString<T extends string>(s: string): BrandedString<T> {
     return s as BrandedString<T>;
+}
+
+/**
+ * Returns a function that brands a string with the specified brand.  For
+ * example:
+ *
+ * ```ts
+ * type Apple = BrandedString<"apple">;
+ * // `makeApple` will be of type `(s: string) => Apple`
+ * const makeApple = makeBrandString<Apple>();
+ * // `apple` will be of type `Apple`
+ * const apple = makeApple("Pink Lady");
+ * ```
+ */
+export function makeBrandString<T>(): T extends BrandedString<any> ? (s: string) => T : never {
+    return brandString as any;
 }

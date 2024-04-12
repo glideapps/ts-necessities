@@ -177,4 +177,4 @@ export function exceptionToError(e: unknown): Error {
 
 export { DefaultMap, ReadonlyDefaultMap } from "./default-map";
 
-export { BrandedString, brandString } from "./branded-strings";
+export { BrandedString, brandString, makeBrandString } from "./branded-strings";
