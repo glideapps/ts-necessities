@@ -109,6 +109,27 @@ export function isEnumValue<T extends object>(e: T, x: unknown): x is T[keyof T]
 }
 
 /**
+ * Returns whether `x` is an array.
+ *
+ * We have this because `Array.isArray(x)` returns `x is any[]`, which means
+ * that this code compiles without error, for example:
+ *
+ * ```typescript
+ * function thisShouldNotCompile(x: string | readonly string[]) {
+ *     if (Array.isArray(x)) {
+ *         const s = x[0];
+ *         s.thisIsAnAny("but it's actually a string");
+ *     }
+ * }
+ * ```
+ */
+export function isArray<T, U>(x: readonly T[] | U): x is readonly T[];
+export function isArray<T, U>(x: T[] | U): x is T[];
+export function isArray<T, U>(x: readonly T[] | U): x is readonly T[] {
+    return Array.isArray(x);
+}
+
+/**
  * Returns whether `obj` has `name` as its own property.
  */
 export function hasOwnProperty<T extends string>(obj: unknown, name: T): obj is { [P in T]: unknown } {
