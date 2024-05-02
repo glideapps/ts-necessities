@@ -93,6 +93,8 @@ export type Writable<T> = { -readonly [P in keyof T]: T[P] };
 
 export type DeepWritable<T> = { -readonly [P in keyof T]: DeepWritable<T[P]> };
 
+export type DeepReadonly<T> = { readonly [P in keyof T]: DeepReadonly<T[P]> };
+
 /**
  * If `x` is undefined, return `undefined`.  Otherwise, return `f(x)`.
  */
