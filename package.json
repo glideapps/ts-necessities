@@ -1,6 +1,6 @@
 {
     "name": "@glideapps/ts-necessities",
-    "version": "2.2.3",
+    "version": "2.2.4",
     "description": "Small utilities to make life with TypeScript easier",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
