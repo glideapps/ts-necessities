@@ -168,6 +168,27 @@ export function filterUndefined<T>(arr: Iterable<T | undefined>): T[] {
     return result;
 }
 
+export function mapRecord<T, U>(r: Record<string, T>, f: (v: T, n: string) => U): Record<string, U> {
+    const result: Record<string, U> = {};
+    for (const [name, value] of Object.entries(r)) {
+        result[name] = f(value, name);
+    }
+    return result;
+}
+
+export function mapRecordFilterUndefined<T, U>(
+    r: Record<string, T>,
+    f: (v: T, n: string) => U | undefined
+): Record<string, U> {
+    const result: Record<string, U> = {};
+    for (const [name, value] of Object.entries(r)) {
+        const o = f(value, name);
+        if (o === undefined) continue;
+        result[name] = o;
+    }
+    return result;
+}
+
 /**
  * Returns a string representation of `e`, which is supposed to be an
  * exception.

@@ -12,9 +12,9 @@
         "downlevelIteration": true,
         "noFallthroughCasesInSwitch": true,
         "noImplicitReturns": true,
-        "target": "es6",
+        "target": "esnext",
         "outDir": "dist",
-        "lib": ["es6", "dom"],
+        "lib": ["es2017", "dom"],
         "baseUrl": "./src",
         "typeRoots": ["./node_modules/@types"]
     },
