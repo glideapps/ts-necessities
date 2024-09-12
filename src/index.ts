@@ -195,6 +195,9 @@ export function mapRecordFilterUndefined<T, U>(
  */
 export function exceptionToString(e: unknown): string {
     if (e === undefined) return "";
+    if (hasOwnProperty(e, "message") && typeof e.message === "string") {
+        return e.message;
+    }
     try {
         return (e as any).toString();
     } catch (f: unknown) {
