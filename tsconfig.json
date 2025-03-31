@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "module": "commonjs",
+        "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "noImplicitAny": true,
@@ -14,13 +15,15 @@
         "noImplicitReturns": true,
         "target": "esnext",
         "outDir": "dist",
-        "lib": ["es2017", "dom"],
+        "lib": ["es2020", "dom"],
         "baseUrl": "./src",
-        "typeRoots": ["./node_modules/@types"]
+        "typeRoots": ["./node_modules/@types"],
+        "skipLibCheck": true
     },
     "typedocOptions": {
         "entryPoints": ["src/index.ts"],
         "out": "docs"
     },
-    "include": ["./src/**/*.ts", "./src/**/*.tsx"]
+    "include": ["./src/**/*.ts", "./src/**/*.tsx"],
+    "exclude": ["**/*.test.ts"]
 }
