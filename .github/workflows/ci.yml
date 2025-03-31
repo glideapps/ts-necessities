@@ -28,3 +28,7 @@ jobs:
               run: npm run lint
             - name: Test
               run: npm run test
+            - name: Verify dual module compatibility
+              run: |
+                  node -e "require('./dist/index.js')" # Test CJS
+                  node --input-type=module -e "import * as mod from './dist/index.mjs'; console.log(typeof mod)" # Test ESM
