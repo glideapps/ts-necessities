@@ -28,10 +28,3 @@ jobs:
         run: npm run lint
       - name: Test
         run: npm run test
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./coverage/lcov.info
-          flags: unittests
-          fail_ci_if_error: true
