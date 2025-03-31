@@ -38,6 +38,6 @@ export function brandString<T extends string>(s: string): BrandedString<T> {
  * const apple = makeApple("Pink Lady");
  * ```
  */
-export function makeBrandString<T>(): T extends BrandedString<any> ? (s: string) => T : never {
-    return brandString as any;
+export function makeBrandString<T>(): T extends BrandedString<string> ? (s: string) => T : never {
+    return brandString as unknown as T extends BrandedString<string> ? (s: string) => T : never;
 }

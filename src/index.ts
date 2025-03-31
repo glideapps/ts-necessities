@@ -17,9 +17,8 @@ export function proveNever<T>(_never: never, message: string, result: T): never 
 /**
  * Throw an `Error` and trace `message`.
  */
-export function panic(message: string = "This should not happen"): never {
+export function panic(message = "This should not happen"): never {
     console.trace(message);
-    debugger;
     throw new Error(message);
 }
 
@@ -27,7 +26,7 @@ export function panic(message: string = "This should not happen"): never {
  * Assert that `fact` is `true`.  If the assertion fails, [[panic]]
  * with `message`.
  */
-export function assert(fact: boolean, message: string = "Assertion failed"): asserts fact {
+export function assert(fact: boolean, message = "Assertion failed"): asserts fact {
     if (fact) return;
     return panic(message);
 }
@@ -36,7 +35,7 @@ export function assert(fact: boolean, message: string = "Assertion failed"): ass
  * Only compile if `_never` has the type `never`.  If run, [[panic]]
  * with `message`.
  */
-export function assertNever(_never: never, message: string = "`never` happened"): never {
+export function assertNever(_never: never, message = "`never` happened"): never {
     return panic(message);
 }
 
