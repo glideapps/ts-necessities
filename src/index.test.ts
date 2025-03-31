@@ -17,6 +17,10 @@ describe('proveNever', () => {
     vi.spyOn(console, 'trace').mockImplementation(() => {});
   });
   
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+  
   test('proveNever returns the provided result', () => {
     // We need to trick TypeScript to allow calling this with a non-never type
     // since this function is only meant to be called in exhaustive checks
@@ -29,6 +33,10 @@ describe('proveNever', () => {
 describe('panic', () => {
   beforeEach(() => {
     vi.spyOn(console, 'trace').mockImplementation(() => {});
+  });
+  
+  afterEach(() => {
+    vi.restoreAllMocks();
   });
   
   test('panic throws an error with the provided message', () => {
@@ -45,6 +53,10 @@ describe('panic', () => {
 describe('assert', () => {
   beforeEach(() => {
     vi.spyOn(console, 'trace').mockImplementation(() => {});
+  });
+  
+  afterEach(() => {
+    vi.restoreAllMocks();
   });
   
   test('assert does nothing when condition is true', () => {
@@ -68,6 +80,10 @@ describe('assertNever', () => {
     vi.spyOn(console, 'trace').mockImplementation(() => {});
   });
   
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+  
   test('assertNever throws with custom message', () => {
     // We need to trick TypeScript to allow calling this with a non-never type
     expect(() => (utils.assertNever as any)('not-never', 'never happened')).toThrow('never happened');
@@ -83,6 +99,10 @@ describe('assertNever', () => {
 describe('defined', () => {
   beforeEach(() => {
     vi.spyOn(console, 'trace').mockImplementation(() => {});
+  });
+  
+  afterEach(() => {
+    vi.restoreAllMocks();
   });
   
   test('defined returns value when not undefined', () => {
@@ -124,6 +144,9 @@ describe('dontAwait', () => {
     
     // Just a placeholder assertion
     expect(true).toBe(true);
+    
+    // Restore mocks
+    vi.restoreAllMocks();
   });
 });
 
