@@ -16,13 +16,16 @@
 - **Formatting**: 4-space indentation, 120 character line width
 - **Imports**: Use relative imports with file extension omitted
 - **Types**: Explicit return types required; prefer specific types over `any`
-- **Naming**: 
+- **Naming**:
   - camelCase for variables, functions, methods
   - PascalCase for classes, interfaces, types
   - Avoid prefixing interfaces with 'I'
 - **Error Handling**: Use utility functions (`assert`, `defined`, `panic`) for validation
-- **Tests**: Co-locate tests with source files using `.test.ts` extension
+- **Tests**:
+  - Co-locate tests with source files using `.test.ts` extension
+  - Always restore mocks in `afterEach` hooks with `vi.restoreAllMocks()`
+  - Aim for high coverage (95%+)
 - **Documentation**: Use JSDoc comments for exported functions and classes
 - **Module System**: Supports both ESM and CommonJS via dual-format publishing
 
-Write exhaustive tests with high coverage (aim for 95%+). Use branded types for string subtypes to enforce type safety.
+Write exhaustive tests with high coverage (aim for 95%+). Use branded types for string subtypes to enforce type safety. Follow strict boolean expressions.
